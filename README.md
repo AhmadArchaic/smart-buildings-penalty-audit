@@ -13,7 +13,7 @@ The paper takes the challenge score apart by reward term, climate and building s
 | `experiments/kaggle/` | Kaggle notebook scripts: the 30-scenario decomposition, the CtrlX sweep, the 30-scenario occupancy detection test. |
 | `experiments/local/` | Run one policy on one scenario; split a run's penalty by building state (occupied / pre-arrival / empty). |
 | `occupancy/` | Occupancy logging, detection tests (`feat.py`, `arx.py`), the estimator (`est.py`, `occ_weights.json`) and the afternoon release controller (`occ_release.py`, `run_occ.py`). |
-| `results/` | Per-scenario CSVs behind every table and figure. |
+| `results/` | Per-scenario CSVs behind every table and figure. In `occupancy_release_30.csv` the first 20 rows are rounded to five decimals; the paper's ranges use the unrounded Kaggle output (for example +818% rather than the +816% these rounded rows give for `b4/phoenix_8`). |
 | `paper/` | LaTeX source, figures and the scripts that draw them. |
 
 ## Requirements
