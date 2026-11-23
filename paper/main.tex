@@ -212,7 +212,7 @@ The ablation, the time-of-day split and the sweep use one building and shorter e
 \section{Conclusion}
 Splitting the challenge score by term, climate and building state shows where controllers stand. The shipped baseline loses on comfort; a strong transferable controller removes that loss in every training scenario, and what remains is heat in cold weather, spent while the building is occupied. Schedule ideas that look large on a weak base vanish on a strong one, the strong controller's parameters are already optimal, and the Round~2 fix confirms that its savings are physical. Per-zone occupancy, the one lever with a measured upside, is only weakly visible in the observations a submission receives, and acting on a weak estimate costs far more than it saves, because the last people in a building carry the whole comfort term. The next gain must come from conditioning occupied, cold buildings with less heat, not from tuning schedules or guessing who is present.
 
-\paragraph{Code and data.} All controllers, run scripts, notebooks and per-scenario results are available from the author. CtrlX and Wu's controller are used under the Apache-2.0 license.
+\paragraph{Code and data.} All controllers, run scripts and per-scenario results are at \url{https://github.com/AhmadArchaic/smart-buildings-penalty-audit}. CtrlX and Wu's controller are used under the Apache-2.0 license.
 
 \small
 \begin{thebibliography}{99}
