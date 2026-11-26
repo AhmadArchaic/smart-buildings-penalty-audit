@@ -18,7 +18,7 @@ SIGS = ("zone_air_temperature_sensor", "supply_air_damper_percentage_command", "
 
 
 class OccRelease(CtrlX):
-    OCC = {"mode": "est", "relax_K": None, "start_hour": 13.0, "seed": 0, "weights": None}
+    OCC = {"mode": "est", "relax_K": None, "start_hour": 13.0, "seed": 0, "weights": None, "thr": None}
 
     def __init__(self, building_meta_data, action_spec=None):
         super().__init__(building_meta_data, action_spec)
@@ -100,7 +100,11 @@ class OccRelease(CtrlX):
                     pick = self.occ_rng.choice(free, need - have, replace=False)
                 else:
                     s = np.mean(self.o_score, axis=0)[free]
-                    pick = free[np.argsort(s)[:need - have]]
+                    order = np.argsort(s)[:need - have]
+                    thr = self.OCC.get("thr")
+                    if thr is not None:
+                        order = order[s[order] < thr]
+                    pick = free[order]
                 self.o_released[pick] = True
         return self.o_released if self.o_released.any() else None
 
